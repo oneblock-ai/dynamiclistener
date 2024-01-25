@@ -1,9 +1,10 @@
 package static
 
 import (
-	"github.com/rancher/dynamiclistener/factory"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+
+	"github.com/rancher/dynamiclistener/factory"
 )
 
 type Storage struct {

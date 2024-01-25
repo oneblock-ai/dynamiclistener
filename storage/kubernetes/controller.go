@@ -5,8 +5,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/rancher/dynamiclistener"
-	"github.com/rancher/dynamiclistener/cert"
 	"github.com/rancher/wrangler/v2/pkg/generated/controllers/core"
 	v1controller "github.com/rancher/wrangler/v2/pkg/generated/controllers/core/v1"
 	"github.com/rancher/wrangler/v2/pkg/start"
@@ -16,6 +14,9 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/wait"
 	"k8s.io/client-go/util/retry"
+
+	"github.com/rancher/dynamiclistener"
+	"github.com/rancher/dynamiclistener/cert"
 )
 
 type CoreGetter func() *core.Factory
