@@ -6,12 +6,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/rancher/dynamiclistener/factory"
 	"github.com/stretchr/testify/assert"
 	v1 "k8s.io/api/core/v1"
 	apiError "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	"github.com/rancher/dynamiclistener/factory"
 )
 
 func Test_getCertificate(t *testing.T) {
@@ -215,11 +216,18 @@ func (m *MockTLSStorage) Update(secret *v1.Secret) error {
 // adapted from k8s.io/apimachinery@v0.18.8/pkg/util.proxy/ugradeaware_test.go
 type fakeConn struct{}
 
-func (f *fakeConn) Read([]byte) (int, error)        { return 0, nil }
-func (f *fakeConn) Write([]byte) (int, error)       { return 0, nil }
-func (f *fakeConn) Close() error                    { return nil }
-func (fakeConn) LocalAddr() net.Addr                { return nil }
-func (fakeConn) RemoteAddr() net.Addr               { return nil }
-func (fakeConn) SetDeadline(t time.Time) error      { return nil }
-func (fakeConn) SetReadDeadline(t time.Time) error  { return nil }
+func (f *fakeConn) Read([]byte) (int, error) { return 0, nil }
+
+func (f *fakeConn) Write([]byte) (int, error) { return 0, nil }
+
+func (f *fakeConn) Close() error { return nil }
+
+func (fakeConn) LocalAddr() net.Addr { return nil }
+
+func (fakeConn) RemoteAddr() net.Addr { return nil }
+
+func (fakeConn) SetDeadline(t time.Time) error { return nil }
+
+func (fakeConn) SetReadDeadline(t time.Time) error { return nil }
+
 func (fakeConn) SetWriteDeadline(t time.Time) error { return nil }

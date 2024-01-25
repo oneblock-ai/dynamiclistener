@@ -10,14 +10,15 @@ import (
 	"net"
 	"net/http"
 
+	v1 "github.com/rancher/wrangler/v2/pkg/generated/controllers/core/v1"
+	"github.com/sirupsen/logrus"
+	"golang.org/x/crypto/acme/autocert"
+
 	"github.com/rancher/dynamiclistener"
 	"github.com/rancher/dynamiclistener/factory"
 	"github.com/rancher/dynamiclistener/storage/file"
 	"github.com/rancher/dynamiclistener/storage/kubernetes"
 	"github.com/rancher/dynamiclistener/storage/memory"
-	v1 "github.com/rancher/wrangler/v2/pkg/generated/controllers/core/v1"
-	"github.com/sirupsen/logrus"
-	"golang.org/x/crypto/acme/autocert"
 )
 
 type ListenOpts struct {
